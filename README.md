@@ -63,11 +63,26 @@ developing your own process.
 - Add a new toy when the toy form is submitted
 
   - How I debugged:
+    - Observed what happens when the create new toy button is pressed
+    - 500 Internal Server Error shown in network tab under headers
+    - checked server logs "NameError (uninitialized constant ToysController::Toys):"
+    - Typo fixed with the class name, "Toys" changed to "Toy"
 
 - Update the number of likes for a toy
 
   - How I debugged:
+    - Observed what happens when the like button is press
+    - react error points to fetch
+    - checked and saw :update was defined in the routes.rb file
+    - Saw the server logs, Update transaction is recorded
+    - update method was not rendering any return values which react project was expecting
+    - added "render json: toy, status: :accepted" in the toys_controller.rb file
 
 - Donate a toy to Goodwill (and delete it from our database)
 
   - How I debugged:
+    - Observed what happens when the Donate to goodwill button is press
+    - Status code 404
+    - Server logs, "(No route matches [DELETE]..."
+    - Checked routes.rb and added :destroy method 
+    
